@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const cors = require("cors");
+const dotenv = require("dotenv");
 const morgan = require("morgan");
 const express = require("express");
 const blogs = require("./routes/blog");
@@ -13,6 +14,8 @@ mongoose
   })
   .then(() => console.log("Connected to MongoDB.."))
   .catch((err) => console.log("Clould not connect to mongodb"));
+
+dotenv.config();
 
 app.use(morgan("tiny"));
 app.use(cors());
